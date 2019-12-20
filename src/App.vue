@@ -1,7 +1,8 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/>
+    <h1>{{ hello }}</h1>
+    <img alt="Vue logo" src="./assets/logo.png" />
+    <HelloWorld msg="Welcome to Your Vue.js + TypeScript App" />
   </div>
 </template>
 
@@ -14,7 +15,10 @@ import HelloWorld from './components/HelloWorld.vue';
     HelloWorld,
   },
 })
-export default class App extends Vue {}
+export default class App extends Vue {
+  private hello: string = 'hello world';
+  private content: string = 'Ut explicabo nesciunt et officia iste et qui tempore repudiandae. Quos repellendus omnis qui et commodi consequatur iste perferendis accusamus. Et ipsum non adipisci exercitationem provident alias aperiam culpa voluptates. Et sequi error omnis ex. Nostrum non id rem et.';
+}
 </script>
 
 <style lang="less">
