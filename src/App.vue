@@ -1,7 +1,8 @@
 <template>
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js + TypeScript App" :content="content" />
+    <p v-if="eventShow">{{ eventText }}</p>
+    <HelloWorld msg="Welcome to Your Vue.js + TypeScript App" :content="content" @get-text="handleEvent" />
   </div>
 </template>
 
@@ -18,6 +19,13 @@ export default class App extends Vue {
   private hello: string = 'hello world';
   private content: string =
     'Ut explicabo nesciunt et officia iste et qui tempore repudiandae. Quos repellendus omnis qui et commodi consequatur iste perferendis accusamus. Et ipsum non adipisci exercitationem provident alias aperiam culpa voluptates. Et sequi error omnis ex. Nostrum non id rem et.';
+  private eventShow: boolean = false;
+  private eventText: string = '';
+
+  private handleEvent({ show, text }: any) {
+    this.eventShow = show;
+    this.eventText = text;
+  }
 }
 </script>
 
