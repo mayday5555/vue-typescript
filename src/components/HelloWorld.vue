@@ -23,6 +23,11 @@
       <button @click="handleEvent">tigger</button>
       <p v-if="hasTigger">you have tigger 'get-text' event</p>
     </div>
+    <div class="container">
+      <h3 class="title">model</h3>
+      <ModelTest v-model="modelValue"></ModelTest>
+      <p>{{ modelValue }}</p>
+    </div>
   </div>
 </template>
 
@@ -31,10 +36,12 @@ import { Component, Prop, Vue, Watch, Emit } from 'vue-property-decorator';
 import MyMixins from '../utils/mixin';
 import { mixins } from 'vue-class-component';
 
-@Component
+import ModelTest from './ModelTest.vue';
+
+@Component({ components: { ModelTest } })
 export default class HelloWorld extends mixins(MyMixins) {
   @Prop(String) private msg!: string;
-  @Prop({ default: 'default value1', type: [String, Number] }) private content?: string | number;
+  @Prop({ default: 'default value', type: [String, Number] }) private content?: string | number;
 
   private value1: string = '0';
   private value2: string = '0';
@@ -42,6 +49,7 @@ export default class HelloWorld extends mixins(MyMixins) {
   private add2: number = 0;
   private emitText: string = '';
   private hasTigger: boolean = false;
+  private modelValue: string = 'default';
 
   get result() {
     return this.add1 + this.add2;
